@@ -19,8 +19,7 @@
     "url": "git+https://github.com/jaebradley/requestbin-cli.git"
   },
   "keywords": [
-    "Request",
-    "Bin"
+    "RequestBin"
   ],
   "author": "jae.b.bradley@gmail.com",
   "license": "MIT",
