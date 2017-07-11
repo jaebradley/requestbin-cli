@@ -1,0 +1,38 @@
+{
+  "name": "requestbin-cli",
+  "version": "1.0.0",
+  "description": "A Command Line Tool for the Request Bin Service",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaebradley/requestbin-cli.git"
+  },
+  "keywords": [
+    "Request",
+    "Bin"
+  ],
+  "author": "jae.b.bradley@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaebradley/requestbin-cli/issues"
+  },
+  "homepage": "https://github.com/jaebradley/requestbin-cli#readme",
+  "dependencies": {
+    "cli-table2": "^0.2.0",
+    "commander": "^2.11.0",
+    "immutable": "^3.8.1",
+    "request-bin": "^1.0.1"
+  },
+  "devDependencies": {
+    "babel": "^6.23.0",
+    "chai": "^4.0.2",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb-base": "^11.2.0",
+    "eslint-plugin-import": "^2.7.0",
+    "mocha": "^3.4.2",
+    "sinon": "^2.3.7"
+  }
+}
