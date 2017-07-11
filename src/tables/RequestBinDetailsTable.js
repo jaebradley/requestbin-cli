@@ -9,8 +9,8 @@ export default class RequestBinDetailsTable {
     const table = new Table();
     table.push(
       { 'Bin ID': this.details.id },
-      { '# of Requests': this.details.requestCount },
-      { 'Private?': this.details.isPrivate },
+      { Requests: this.details.requestCount },
+      { Private: this.details.isPrivate },
       { Colors: this.details.colors.join(', ') },
     );
     return table.toString();

@@ -3,7 +3,7 @@ import { Record, List } from 'immutable';
 const defaults = {
   id: '',
   isPrivate: false,
-  colors: new List(),
+  colors: List(),
   requestCount: 0,
 };
 
@@ -12,7 +12,7 @@ export default class RequestDetails extends Record(defaults) {
     return new RequestDetails({
       id: response.name,
       isPrivate: response.private,
-      colors: new List(response.colors),
+      colors: List(response.color),
       requestCount: response.request_count,
     });
   }

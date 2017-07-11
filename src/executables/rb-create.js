@@ -4,11 +4,11 @@
 
 import program from 'commander';
 
+import CommandExecutor from '../services/CommandExecutor';
+
 program
   .description('Create Request Bin')
   .option('-p, --private', 'Create private Request Bin')
   .parse(process.argv);
 
-// Placeholder functionality
-
-console.log(`Creating Request Bin - Private: ${program.private}`);
+CommandExecutor.createBin(program.private).then(table => console.log(table));
