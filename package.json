@@ -29,6 +29,7 @@
   "homepage": "https://github.com/jaebradley/requestbin-cli#readme",
   "dependencies": {
     "cli-table2": "^0.2.0",
+    "colors": "^1.1.2",
     "commander": "^2.11.0",
     "copy-to-clipboard": "^3.0.6",
     "immutable": "^3.8.1",
