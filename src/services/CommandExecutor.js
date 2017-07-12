@@ -30,6 +30,16 @@ export default class CommandExecutor {
       });
   }
 
+  static getBin(binId) {
+    if (!binId || typeof binId !== 'string' || binId.trim().length === 0) {
+      throw new Error(`Invalid binId: ${binId}`);
+    }
+
+    return RequestBinClient.getBin(binId)
+      .then(data => RequestBinDetails.from(data))
+      .then(details => console.log(new RequestBinDetailsTable(details).build()));
+  }
+
   static getRequests(binId) {
     if (!binId || typeof binId !== 'string' || binId.trim().length === 0) {
       throw new Error(`Invalid binId: ${binId}`);
