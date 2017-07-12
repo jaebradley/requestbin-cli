@@ -7,13 +7,13 @@ const defaults = {
   requestCount: 0,
 };
 
-export default class RequestDetails extends Record(defaults) {
-  static from(response) {
-    return new RequestDetails({
-      id: response.name,
-      isPrivate: response.private,
-      colors: List(response.color),
-      requestCount: response.request_count,
+export default class RequestBinDetails extends Record(defaults) {
+  static from(details) {
+    return new RequestBinDetails({
+      id: details.name,
+      isPrivate: details.private,
+      colors: List(details.color),
+      requestCount: details.request_count,
     });
   }
 }
