@@ -1,11 +1,11 @@
-import { Record } from 'immutable';
+import { Record, Map } from 'immutable';
 
 const defaults = {
   id: '',
   method: '',
   executedAt: 0,
-  queryString: {},
-  formData: {},
+  queryParameters: Map(),
+  formData: Map(),
   body: {},
 };
 
@@ -15,8 +15,8 @@ export default class RequestBinRequestDetails extends Record(defaults) {
       id: request.id,
       method: request.method,
       executedAt: request.time,
-      queryString: request.query_string,
-      formData: request.form_data,
+      queryParameters: Map(request.query_string),
+      formData: Map(request.form_data),
       body: request.body,
     });
   }
