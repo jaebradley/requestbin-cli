@@ -4,13 +4,18 @@
 
 import program from 'commander';
 
+import CommandExecutor from '../services/CommandExecutor';
+
 program
   .description('Get Request Bin Details')
   .arguments('<requestBinId>')
   .action((requestBinId) => {
-    // Placeholder functionality
-
-    console.log(`Getting Request Bin Details for ${requestBinId}`);
+    try {
+      CommandExecutor.getBin(requestBinId)
+        .catch(e => console.error(`Error when fetching Request Bin ${requestBinId}: ${e.message}`));
+    } catch (e) {
+      console.error(`Error when fetching Request Bin ${requestBinId}: ${e.message}`);
+    }
   });
 
 program.parse(process.argv);
