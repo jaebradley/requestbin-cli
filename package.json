@@ -40,9 +40,12 @@
     "babel-cli": "^6.24.1",
     "babel-preset-env": "^1.6.0",
     "chai": "^4.0.2",
+    "codecov": "^2.2.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-mocha": "^4.11.0",
+    "istanbul": "1.0.0-alpha.2",
     "mocha": "^3.4.2",
     "sinon": "^2.3.7"
   }
