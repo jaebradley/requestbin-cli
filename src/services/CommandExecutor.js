@@ -31,7 +31,7 @@ export default class CommandExecutor {
   }
 
   static getBin(binId) {
-    if (!binId || typeof binId !== 'string' || binId.trim().length === 0) {
+    if (!CommandExecutor.isValidId(binId)) {
       throw new Error(`Invalid binId: ${binId}`);
     }
 
@@ -41,7 +41,7 @@ export default class CommandExecutor {
   }
 
   static getRequests(binId) {
-    if (!binId || typeof binId !== 'string' || binId.trim().length === 0) {
+    if (!CommandExecutor.isValidId(binId)) {
       throw new Error(`Invalid binId: ${binId}`);
     }
 
@@ -50,5 +50,23 @@ export default class CommandExecutor {
       .then((requests) => {
         requests.forEach(request => console.log(new RequestBinRequestDetailsTable(request).build()));
       });
+  }
+
+  static getRequest(binId, requestId) {
+    if (!CommandExecutor.isValidId(binId)) {
+      throw new Error(`Invalid binId: ${binId}`);
+    }
+
+    if (!CommandExecutor.isValidId(requestId)) {
+      throw new Error(`Invalid requestId: ${requestId}`);
+    }
+
+    return RequestBinClient.getRequest(binId, requestId)
+      .then(data => RequestBinRequestDetails.from(data))
+      .then(request => console.log(new RequestBinRequestDetailsTable(request).build()));
+  }
+
+  static isValidId(id) {
+    return id && typeof id === 'string' && id.trim().length > 0;
   }
 }
