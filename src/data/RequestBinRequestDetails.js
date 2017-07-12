@@ -6,7 +6,6 @@ const defaults = {
   executedAt: 0,
   queryParameters: Map(),
   formData: Map(),
-  body: {},
 };
 
 export default class RequestBinRequestDetails extends Record(defaults) {
@@ -17,7 +16,6 @@ export default class RequestBinRequestDetails extends Record(defaults) {
       executedAt: request.time,
       queryParameters: Map(request.query_string),
       formData: Map(request.form_data),
-      body: request.body,
     });
   }
 }

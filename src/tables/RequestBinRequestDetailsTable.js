@@ -15,8 +15,9 @@ export default class RequestBinRequestDetailsTable {
     table.push(
       { 'Request ID': colors.red(colors.bold(this.details.id)) },
       { Method: colors.green(colors.bold(this.details.method)) },
-      { 'Executed At': colors.cyan(colors.bold(moment(Math.round(1000 * this.details.executedAt)).format('ddd, MMM Do YYYY, h:mm:ss A'))) },
+      { 'Executed At': this.getFormattedExecutionTime() },
     );
+
 
     if (formattedQueryParameters) {
       table.push({ 'Query Parameters': formattedQueryParameters });
@@ -27,6 +28,10 @@ export default class RequestBinRequestDetailsTable {
     }
 
     return table.toString();
+  }
+
+  getFormattedExecutionTime() {
+    return colors.cyan(colors.bold(moment(Math.round(1000 * this.details.executedAt)).format('ddd, MMM Do YYYY, h:mm:ss A')));
   }
 
   getFormattedQueryParameters() {
