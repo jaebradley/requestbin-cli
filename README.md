@@ -3,6 +3,8 @@
 [![codecov](https://codecov.io/gh/jaebradley/requestbin-cli/branch/master/graph/badge.svg)](https://codecov.io/gh/jaebradley/requestbin-cli)
 [![Build Status](https://travis-ci.org/jaebradley/requestbin-cli.svg?branch=master)](https://travis-ci.org/jaebradley/requestbin-cli)
 
+[![NPM](https://nodei.co/npm/requestbin-cli.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/requestbin-cli/)
+
 ## Purpose
 [Request Bin](https://requestb.in/) is a pretty cool service - wouldn't it be great to get bin and request details in the command line?
 
