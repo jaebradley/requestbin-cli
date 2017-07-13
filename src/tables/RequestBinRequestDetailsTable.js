@@ -1,5 +1,5 @@
 import Table from 'cli-table2';
-import colors from 'colors';
+import chalk from 'chalk';
 import moment from 'moment';
 
 export default class RequestBinRequestDetailsTable {
@@ -31,17 +31,17 @@ export default class RequestBinRequestDetailsTable {
   }
 
   getFormattedId() {
-    return colors.red(colors.bold(this.details.id));
+    return chalk.red(chalk.bold(this.details.id));
   }
 
   getFormattedMethod() {
-    return colors.green(colors.bold(this.details.method));
+    return chalk.green(chalk.bold(this.details.method));
   }
 
   getFormattedExecutionTime() {
     const millisecondUnixTimestamp = Math.round(1000 * this.details.executedAt);
     const formattedTime = moment(millisecondUnixTimestamp).format('ddd, MMM Do YYYY, h:mm:ss A');
-    return colors.cyan(colors.bold(formattedTime));
+    return chalk.cyan(chalk.bold(formattedTime));
   }
 
   getFormattedQueryParameters() {
@@ -59,6 +59,6 @@ export default class RequestBinRequestDetailsTable {
   }
 
   static getFormattedEntry(key, value) {
-    return `${colors.bold(colors.green(key))}: ${colors.red(value)}`;
+    return `${chalk.bold(chalk.green(key))}: ${chalk.red(value)}`;
   }
 }

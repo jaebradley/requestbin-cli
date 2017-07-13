@@ -1,5 +1,5 @@
 import Table from 'cli-table2';
-import colors from 'colors';
+import chalk from 'chalk';
 
 export default class RequestBinDetailsTable {
   constructor(details) {
@@ -18,18 +18,18 @@ export default class RequestBinDetailsTable {
   }
 
   getFormattedId() {
-    return colors.red(colors.bold(this.details.id));
+    return chalk.red(chalk.bold(this.details.id));
   }
 
   getFormattedRequestCounts() {
-    return colors.green(colors.bold(this.details.requestCount));
+    return chalk.green(chalk.bold(this.details.requestCount));
   }
 
   getFormattedIsPrivate() {
-    return colors.cyan(colors.bold(this.details.isPrivate));
+    return chalk.cyan(chalk.bold(this.details.isPrivate));
   }
 
   getFormattedColors() {
-    return colors.rainbow(this.details.colors.join(', '));
+    return chalk.blue(this.details.colors.join(', '));
   }
 }

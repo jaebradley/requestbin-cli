@@ -69,7 +69,7 @@ describe('Test RequestBinDetailsTable', () => {
     });
 
     it('should return a table (integration test)', () => {
-      const expected = '\u001b[90m┌──────────\u001b[39m\u001b[90m┬──────────────┐\u001b[39m\n\u001b[90m│\u001b[39m Bin ID   \u001b[90m│\u001b[39m \u001b[31m\u001b[1mid\u001b[22m\u001b[39m           \u001b[90m│\u001b[39m\n\u001b[90m├──────────\u001b[39m\u001b[90m┼──────────────┤\u001b[39m\n\u001b[90m│\u001b[39m Requests \u001b[90m│\u001b[39m \u001b[32m\u001b[1mrequestCount\u001b[22m\u001b[39m \u001b[90m│\u001b[39m\n\u001b[90m├──────────\u001b[39m\u001b[90m┼──────────────┤\u001b[39m\n\u001b[90m│\u001b[39m Private  \u001b[90m│\u001b[39m \u001b[36m\u001b[1misPrivate\u001b[22m\u001b[39m    \u001b[90m│\u001b[39m\n\u001b[90m├──────────\u001b[39m\u001b[90m┼──────────────┤\u001b[39m\n\u001b[90m│\u001b[39m Colors   \u001b[90m│\u001b[39m \u001b[31m1\u001b[39m\u001b[33m,\u001b[39m \u001b[34m2\u001b[39m         \u001b[90m│\u001b[39m\n\u001b[90m└──────────\u001b[39m\u001b[90m┴──────────────┘\u001b[39m';
+      const expected = '\u001b[90m┌──────────\u001b[39m\u001b[90m┬──────────────┐\u001b[39m\n\u001b[90m│\u001b[39m Bin ID   \u001b[90m│\u001b[39m \u001b[31m\u001b[1mid\u001b[22m\u001b[39m           \u001b[90m│\u001b[39m\n\u001b[90m├──────────\u001b[39m\u001b[90m┼──────────────┤\u001b[39m\n\u001b[90m│\u001b[39m Requests \u001b[90m│\u001b[39m \u001b[32m\u001b[1mrequestCount\u001b[22m\u001b[39m \u001b[90m│\u001b[39m\n\u001b[90m├──────────\u001b[39m\u001b[90m┼──────────────┤\u001b[39m\n\u001b[90m│\u001b[39m Private  \u001b[90m│\u001b[39m \u001b[36m\u001b[1misPrivate\u001b[22m\u001b[39m    \u001b[90m│\u001b[39m\n\u001b[90m├──────────\u001b[39m\u001b[90m┼──────────────┤\u001b[39m\n\u001b[90m│\u001b[39m Colors   \u001b[90m│\u001b[39m \u001b[34m1, 2\u001b[39m         \u001b[90m│\u001b[39m\n\u001b[90m└──────────\u001b[39m\u001b[90m┴──────────────┘\u001b[39m';
       const table = new RequestBinDetailsTable(details);
       table.build().should.eql(expected);
       console.log(`Expected:\n ${expected}`);
@@ -99,7 +99,7 @@ describe('Test RequestBinDetailsTable', () => {
   describe('#getFormattedColors', () => {
     it('should get formatted colors', () => {
       const table = new RequestBinDetailsTable(details);
-      table.getFormattedColors().should.eql('\u001b[31m1\u001b[39m\u001b[33m,\u001b[39m \u001b[34m2\u001b[39m');
+      table.getFormattedColors().should.eql('\u001b[34m1, 2\u001b[39m');
     });
   });
 });
