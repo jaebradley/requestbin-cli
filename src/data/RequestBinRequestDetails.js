@@ -9,13 +9,13 @@ const defaults = {
 };
 
 export default class RequestBinRequestDetails extends Record(defaults) {
-  static from(request) {
+  static from(details) {
     return new RequestBinRequestDetails({
-      id: request.id,
-      method: request.method,
-      executedAt: request.time,
-      queryParameters: Map(request.query_string),
-      formData: Map(request.form_data),
+      id: details.id,
+      method: details.method,
+      executedAt: details.time,
+      queryParameters: Map(details.query_string),
+      formData: Map(details.form_data),
     });
   }
 }
