@@ -9,11 +9,27 @@ export default class RequestBinDetailsTable {
   build() {
     const table = new Table();
     table.push(
-      { 'Bin ID': colors.red(colors.bold(this.details.id)) },
-      { Requests: colors.green(colors.bold(this.details.requestCount)) },
-      { Private: colors.cyan(colors.bold(this.details.isPrivate)) },
-      { Colors: colors.rainbow(this.details.colors.join(', ')) },
+      { 'Bin ID': this.getFormattedId() },
+      { Requests: this.getFormattedRequestCounts() },
+      { Private: this.getFormattedIsPrivate() },
+      { Colors: this.getFormattedColors() },
     );
     return table.toString();
+  }
+
+  getFormattedId() {
+    return colors.red(colors.bold(this.details.id));
+  }
+
+  getFormattedRequestCounts() {
+    return colors.green(colors.bold(this.details.requestCount));
+  }
+
+  getFormattedIsPrivate() {
+    return colors.cyan(colors.bold(this.details.isPrivate));
+  }
+
+  getFormattedColors() {
+    return colors.rainbow(this.details.colors.join(', '));
   }
 }
