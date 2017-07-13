@@ -3,4 +3,5 @@ node_js:
 - "7"
 sudo: false
 script:
+- npm install
 - npm run codecov
