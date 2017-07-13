@@ -13,8 +13,8 @@ export default class RequestBinRequestDetailsTable {
     const formattedFormData = this.getFormattedFormData();
 
     table.push(
-      { 'Request ID': colors.red(colors.bold(this.details.id)) },
-      { Method: colors.green(colors.bold(this.details.method)) },
+      { 'Request ID': this.getFormattedId() },
+      { Method: this.getFormattedMethod() },
       { 'Executed At': this.getFormattedExecutionTime() },
     );
 
@@ -30,8 +30,18 @@ export default class RequestBinRequestDetailsTable {
     return table.toString();
   }
 
+  getFormattedId() {
+    return colors.red(colors.bold(this.details.id));
+  }
+
+  getFormattedMethod() {
+    return colors.green(colors.bold(this.details.method));
+  }
+
   getFormattedExecutionTime() {
-    return colors.cyan(colors.bold(moment(Math.round(1000 * this.details.executedAt)).format('ddd, MMM Do YYYY, h:mm:ss A')));
+    const millisecondUnixTimestamp = Math.round(1000 * this.details.executedAt);
+    const formattedTime = moment(millisecondUnixTimestamp).format('ddd, MMM Do YYYY, h:mm:ss A');
+    return colors.cyan(colors.bold(formattedTime));
   }
 
   getFormattedQueryParameters() {
@@ -43,8 +53,12 @@ export default class RequestBinRequestDetailsTable {
   }
 
   static getFormattedMapping(mapping) {
-    return mapping.map((value, key) => `${colors.bold(colors.green(key))}: ${colors.red(value)}`)
+    return mapping.map((value, key) => RequestBinRequestDetailsTable.getFormattedEntry(key, value))
       .toArray()
       .join('\n');
+  }
+
+  static getFormattedEntry(key, value) {
+    return `${colors.bold(colors.green(key))}: ${colors.red(value)}`;
   }
 }
