@@ -1,13 +1,17 @@
 language: node_js
-cache:
-  directories:
-    - ~/.npm
-notifications:
-  email: false
 node_js:
   - '9'
   - '8'
   - '6'
+cache:
+  directories:
+    - ~/.npm
+notifications:
+  email:
+    recipients:
+      - jae.b.bradley@gmail.com
+    on_success: always
+    on_failure: always
 scripts:
   - npm run lint
   - npm run compile
