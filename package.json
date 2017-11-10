@@ -13,7 +13,8 @@
     "prepublish": "npm run compile",
     "lint": "eslint src",
     "test": "echo 'fix this later'",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post"
+    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
+    "commit": "git-cz"
   },
   "repository": {
     "type": "git",
@@ -42,14 +43,21 @@
     "babel-preset-env": "^1.6.0",
     "chai": "^4.0.2",
     "codecov": "^2.2.0",
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.1.0",
     "eslint": "^3.19.0",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-mocha": "^4.11.0",
     "istanbul": "1.0.0-alpha.2",
     "mocha": "^3.4.2",
+    "semantic-release": "^8.2.0",
     "sinon": "^2.3.7",
-    "sinon-chai": "^2.11.0",
-    "semantic-release": "^8.2.0"
+    "sinon-chai": "^2.11.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
   }
 }
