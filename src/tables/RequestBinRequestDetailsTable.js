@@ -1,4 +1,4 @@
-import Table from 'cli-table2';
+import Table from 'cli-table3';
 import chalk from 'chalk';
 import moment from 'moment';
 

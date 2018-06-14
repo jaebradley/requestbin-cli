@@ -6,7 +6,7 @@ import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import { Map } from 'immutable';
 
-import Table from 'cli-table2';
+import Table from 'cli-table3';
 
 import RequestBinRequestDetailsTable from '../../src/tables/RequestBinRequestDetailsTable';
 

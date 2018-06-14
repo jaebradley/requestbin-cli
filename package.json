@@ -31,7 +31,7 @@
   "homepage": "https://github.com/jaebradley/requestbin-cli#readme",
   "dependencies": {
     "chalk": "^2.0.1",
-    "cli-table2": "^0.2.0",
+    "cli-table3": "^0.5.0",
     "commander": "^2.11.0",
     "copy-paste": "^1.3.0",
     "immutable": "^3.8.1",
