@@ -5,7 +5,7 @@ import chai from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 
-import Table from 'cli-table2';
+import Table from 'cli-table3';
 
 import RequestBinDetailsTable from '../../src/tables/RequestBinDetailsTable';
 
