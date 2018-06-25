@@ -4,14 +4,14 @@
 /* eslint-disable consistent-return */
 
 import program from 'commander';
-import CommandExecutor from '../services/CommandExecutor';
+import { getRequestsDetails } from '../';
 
 program
   .description('Get Requests for Given Request Bin')
   .arguments('<requestBinId>')
   .action((requestBinId) => {
     try {
-      return CommandExecutor.getRequests(requestBinId)
+      return getRequestsDetails(requestBinId)
         .catch(err => console.error(`Error when getting requests for Request Bin ${requestBinId}: ${err.message}`));
     } catch (e) {
       console.error(`Error when getting requests for Request Bin ${requestBinId}: ${e.message}`);

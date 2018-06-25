@@ -4,7 +4,7 @@
 
 import program from 'commander';
 
-import CommandExecutor from '../services/CommandExecutor';
+import { createBin } from '../';
 
 program
   .description('Create Request Bin')
@@ -13,7 +13,7 @@ program
   .parse(process.argv);
 
 try {
-  CommandExecutor.createBin(program.private || false, program.copy || false)
+  createBin({ isPrivate: !!program.private, copyBinIdToClipboard: !!program.copy })
     .catch(err => console.log(`Error occurred when creating bin: ${err.message}`));
 } catch (e) {
   console.error(`Error when creating bin: ${e.message}`);

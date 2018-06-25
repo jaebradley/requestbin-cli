@@ -5,14 +5,14 @@
 
 import program from 'commander';
 
-import CommandExecutor from '../services/CommandExecutor';
+import { getRequestDetails } from '../';
 
 program
   .description('Get Request for Given Request Bin')
   .arguments('<requestBinId> <requestId>')
   .action((requestBinId, requestId) => {
     try {
-      return CommandExecutor.getRequest(requestBinId, requestId)
+      getRequestDetails({ binId: requestBinId, requestId })
         .catch(e => console.error(`Error when getting request ${requestId} for Request Bin ${requestBinId}: ${e.message}`));
     } catch (e) {
       console.error(`Error when getting request ${requestId} for Request Bin ${requestBinId}: ${e.message}`);

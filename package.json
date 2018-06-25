@@ -5,7 +5,7 @@
   "main": "build/executables/requestbin.js",
   "preferGlobal": true,
   "bin": {
-    "rb": "build/executables/requestbin.js"
+    "reqbin": "build/executables/requestbin.js"
   },
   "scripts": {
     "codecov": "codecov",
