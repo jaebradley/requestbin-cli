@@ -3,25 +3,29 @@
   "version": "0.0.0-development",
   "description": "A Command Line Tool for the Request Bin Service",
   "main": "build/executables/requestbin.js",
+  "preferGlobal": true,
   "bin": {
     "rb": "build/executables/requestbin.js"
   },
   "scripts": {
-    "compile": "./node_modules/.bin/babel -d build/ src/",
-    "coverage": "babel-node ./node_modules/istanbul/lib/cli cover node_modules/mocha/bin/_mocha test --  --recursive --compilers js:babel-core/register",
-    "codecov": "./node_modules/.bin/codecov",
-    "prepublish": "npm run compile",
-    "lint": "eslint src",
-    "test": "echo 'fix this later'",
-    "semantic-release": "semantic-release pre && npm publish && semantic-release post",
-    "commit": "git-cz"
+    "codecov": "codecov",
+    "commitmsg": "commitlint -e $GIT_PARAMS",
+    "build": "babel src/ -d build/ --delete-dir-on-start",
+    "build:prod": "BABEL_ENV=production npm run build",
+    "lint": "eslint --ext .js .",
+    "test": "jest",
+    "prepublishOnly": "npm run build:prod",
+    "gc": "commit",
+    "semantic-release": "semantic-release",
+    "travis-deploy-once": "travis-deploy-once"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/jaebradley/requestbin-cli.git"
   },
   "keywords": [
-    "RequestBin"
+    "request bin",
+    "request bin cli"
   ],
   "author": "jae.b.bradley@gmail.com",
   "license": "MIT",
@@ -30,6 +34,7 @@
   },
   "homepage": "https://github.com/jaebradley/requestbin-cli#readme",
   "dependencies": {
+    "@babel/runtime": "^7.0.0-beta.47",
     "chalk": "^2.0.1",
     "cli-table2": "^0.2.0",
     "commander": "^2.11.0",
@@ -39,25 +44,33 @@
     "request-bin": "^1.0.3"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-preset-env": "^1.6.0",
-    "chai": "^4.0.2",
-    "codecov": "^2.2.0",
-    "commitizen": "^2.9.6",
-    "cz-conventional-changelog": "^2.1.0",
-    "eslint": "^3.19.0",
-    "eslint-config-airbnb-base": "^11.2.0",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-mocha": "^4.11.0",
-    "istanbul": "1.0.0-alpha.2",
-    "mocha": "^3.4.2",
-    "semantic-release": "^8.2.0",
-    "sinon": "^2.3.7",
-    "sinon-chai": "^2.11.0"
+    "@babel/cli": "^7.0.0-beta.49",
+    "@babel/core": "^7.0.0-beta.49",
+    "@babel/plugin-transform-async-to-generator": "^7.0.0-beta.49",
+    "@babel/plugin-transform-runtime": "^7.0.0-beta.49",
+    "@babel/preset-env": "^7.0.0-beta.49",
+    "@commitlint/cli": "^7.0.0",
+    "@commitlint/config-angular": "^7.0.1",
+    "@commitlint/prompt": "^7.0.0",
+    "@commitlint/prompt-cli": "^7.0.0",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^23.0.1",
+    "babel-preset-minify": "^0.4.2",
+    "codecov": "^3.0.2",
+    "eslint": "^4.12.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "husky": "^0.14.3",
+    "jest": "^23.1.0",
+    "semantic-release": "^15.0.0",
+    "travis-deploy-once": "^5.0.0"
   },
-  "config": {
-    "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
-    }
+  "jest": {
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "<rootDir>/build/",
+      "<rootDir>/node_modules/"
+    ],
+    "collectCoverage": true
   }
 }
